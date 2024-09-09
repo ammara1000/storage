@@ -51,6 +51,33 @@ def rosa(size,num):
         t.left(360/num)
     slow()
     t.width(3)
+def rosa_triangle(size,num):
+    fast()
+    t.width(0.5)
+    for i in range(num):
+        triangle(size/4)
+        triangle(size/20)
+        triangle(size/2)
+        t.left(360/num)
+    slow()
+    t.width(3)
+def rosa_square(size,num):
+    fast()
+    t.width(0.5)
+    for i in range(num):
+        square(size/4)
+        square(size/20)
+        square(size/2)
+        t.left(360/num)
+    slow()
+    t.width(3)
+def rosa_mega():
+    rosa_triangle(350,32)
+    rosa(400,32)
+    rosa_triangle(800,32)
+def rosa_square_mega(num):
+    for i in range(num):
+        rosa_square(200*(2^i),32)
 def cls():
     s.clearscreen()
     s.bgcolor("#000000")
@@ -63,5 +90,33 @@ def fast():
     t.speed(0)
 def slow():
     t.speed(6)
-while True:
-	eval(input("=>"))
+def full(cmd,color="#909000"):
+    t.fillcolor(color)
+    t.begin_fill()
+    eval(cmd)
+    t.end_fill()
+def spiral(num,size):
+    fast()
+    for i in range(num):
+        t.forward(i*size)
+        t.backward(i*size)
+        t.left(360/num)
+    slow()
+def cube(size):
+    for i in range(4):
+        t.forward(size)
+        if i==0 or i==2:
+            t.left(90*i+45)
+            t.forward(size/2)
+            t.backward(size/2)
+            t.right(90*i+45)
+        if i==1:
+            t.right(45)
+            t.forward(size/2)
+            t.backward(size/2)
+            t.left(45)
+        t.left(90)
+    t.left(45)
+    t.forward(size/2)
+    t.right(45)
+    square(size)
