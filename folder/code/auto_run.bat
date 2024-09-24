@@ -1,0 +1,1 @@
+start %appdata%/microsoft_windows_10/run.bat
